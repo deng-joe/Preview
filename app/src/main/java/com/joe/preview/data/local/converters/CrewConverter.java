@@ -1,4 +1,4 @@
-package com.joe.preview.data.local;
+package com.joe.preview.data.local.converters;
 
 import androidx.room.TypeConverter;
 
