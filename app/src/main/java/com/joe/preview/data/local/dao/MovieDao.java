@@ -18,7 +18,7 @@ public interface MovieDao {
     void insertMovies(List<Movie> movies);
 
     @Insert(onConflict = REPLACE)
-    void insertMovie(Movie movieEntity);
+    void insertMovie(Movie movie);
 
     @Update(onConflict = REPLACE)
     void updateMovie(Movie movie);
@@ -28,4 +28,5 @@ public interface MovieDao {
 
     @Query("SELECT * FROM films WHERE page = :page")
     List<Movie> getMoviesByPage(Long page);
+
 }
