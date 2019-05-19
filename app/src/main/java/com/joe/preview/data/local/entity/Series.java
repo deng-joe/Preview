@@ -16,11 +16,11 @@ import com.joe.preview.data.local.converters.ReviewConverter;
 import com.joe.preview.data.local.converters.SeriesConverter;
 import com.joe.preview.data.local.converters.StringListConverter;
 import com.joe.preview.data.local.converters.VideoConverter;
-import com.joe.preview.data.remote.Cast;
-import com.joe.preview.data.remote.Crew;
-import com.joe.preview.data.remote.Genre;
-import com.joe.preview.data.remote.Review;
-import com.joe.preview.data.remote.Video;
+import com.joe.preview.data.remote.model.Cast;
+import com.joe.preview.data.remote.model.Crew;
+import com.joe.preview.data.remote.model.Genre;
+import com.joe.preview.data.remote.model.Review;
+import com.joe.preview.data.remote.model.Video;
 
 import java.util.ArrayList;
 import java.util.List;

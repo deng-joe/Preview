@@ -1,12 +1,11 @@
-package com.joe.preview.data.remote;
+package com.joe.preview.data.remote.model;
 
 import com.google.gson.annotations.SerializedName;
-import com.joe.preview.data.local.entity.Series;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class SeriesApiResponse {
+public class ReviewApiResponse {
 
     private long page;
 
@@ -16,9 +15,9 @@ public class SeriesApiResponse {
     @SerializedName("total_results")
     private long totalResults;
 
-    private List<Series> results;
+    private List<Review> results;
 
-    public SeriesApiResponse() {
+    public ReviewApiResponse() {
         results = new ArrayList<>();
     }
 
@@ -46,12 +45,12 @@ public class SeriesApiResponse {
         this.totalResults = totalResults;
     }
 
-    public List<Series> getResults() {
+    public List<Review> getResults() {
         return results;
     }
 
-    public void setResults(List<Series> results) {
+    public void setResults(List<Review> results) {
         this.results = results;
     }
-
+    
 }

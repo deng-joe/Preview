@@ -1,4 +1,4 @@
-package com.joe.preview.data.remote;
+package com.joe.preview.data.remote.model;
 
 import android.os.Parcel;
 import android.os.Parcelable;

@@ -1,12 +1,12 @@
-package com.joe.preview.data.remote;
+package com.joe.preview.data.remote.model;
 
 import com.google.gson.annotations.SerializedName;
-import com.joe.preview.data.local.entity.Movie;
+import com.joe.preview.data.local.entity.Series;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MovieApiResponse {
+public class SeriesApiResponse {
 
     private long page;
 
@@ -16,9 +16,9 @@ public class MovieApiResponse {
     @SerializedName("total_results")
     private long totalResults;
 
-    private List<Movie> results;
+    private List<Series> results;
 
-    public MovieApiResponse() {
+    public SeriesApiResponse() {
         results = new ArrayList<>();
     }
 
@@ -46,11 +46,11 @@ public class MovieApiResponse {
         this.totalResults = totalResults;
     }
 
-    public List<Movie> getResults() {
+    public List<Series> getResults() {
         return results;
     }
 
-    public void setResults(List<Movie> results) {
+    public void setResults(List<Series> results) {
         this.results = results;
     }
 

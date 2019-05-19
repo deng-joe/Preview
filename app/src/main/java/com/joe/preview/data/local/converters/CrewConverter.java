@@ -4,7 +4,7 @@ import androidx.room.TypeConverter;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import com.joe.preview.data.remote.Crew;
+import com.joe.preview.data.remote.model.Crew;
 
 import java.lang.reflect.Type;
 import java.util.List;
