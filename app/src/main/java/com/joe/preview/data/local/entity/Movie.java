@@ -12,6 +12,7 @@ import com.joe.preview.constants.PreviewConstants;
 import com.joe.preview.data.local.converters.CastConverter;
 import com.joe.preview.data.local.converters.CrewConverter;
 import com.joe.preview.data.local.converters.GenreConverter;
+import com.joe.preview.data.local.converters.MovieConverter;
 import com.joe.preview.data.local.converters.ReviewConverter;
 import com.joe.preview.data.local.converters.StringListConverter;
 import com.joe.preview.data.local.converters.VideoConverter;
@@ -78,6 +79,10 @@ public class Movie implements Parcelable {
     @TypeConverters(StringListConverter.class)
     private List<String> categoryTypes;
 
+    @Expose
+    @TypeConverters(MovieConverter.class)
+    private List<Movie> similarMovies;
+
     @SerializedName("runtime")
     @Expose
     private Long runtime;
@@ -93,6 +98,7 @@ public class Movie implements Parcelable {
         videos = new ArrayList<>();
         reviews = new ArrayList<>();
         categoryTypes = new ArrayList<>();
+        similarMovies = new ArrayList<>();
     }
 
     public Long getId() {
@@ -201,6 +207,14 @@ public class Movie implements Parcelable {
         this.categoryTypes = categoryTypes;
     }
 
+    public List<Movie> getSimilarMovies() {
+        return similarMovies;
+    }
+
+    public void setSimilarMovies(List<Movie> similarMovies) {
+        this.similarMovies = similarMovies;
+    }
+
     public Long getRuntime() {
         return runtime;
     }
@@ -217,6 +231,10 @@ public class Movie implements Parcelable {
         this.status = status;
     }
 
+    public boolean isLastPage() {
+        return getPage() >= getTotalPages();
+    }
+
     protected Movie(Parcel in) {
         id = (Long) in.readValue(Long.class.getClassLoader());
         page = (Long) in.readValue(Long.class.getClassLoader());
@@ -231,6 +249,7 @@ public class Movie implements Parcelable {
         casts = in.createTypedArrayList(Cast.CREATOR);
         reviews = in.createTypedArrayList(Review.CREATOR);
         categoryTypes = in.createStringArrayList();
+        similarMovies = in.createTypedArrayList(Movie.CREATOR);
         runtime = (Long) in.readValue(Long.class.getClassLoader());
         status = in.readString();
     }
@@ -254,21 +273,22 @@ public class Movie implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeValue(this.id);
-        parcel.writeValue(this.page);
-        parcel.writeValue(this.totalPages);
-        parcel.writeString(this.header);
-        parcel.writeString(this.posterPath);
-        parcel.writeString(this.description);
-        parcel.writeString(this.releaseDate);
-        parcel.writeTypedList(this.genres);
-        parcel.writeTypedList(this.videos);
-        parcel.writeTypedList(this.crews);
-        parcel.writeTypedList(this.casts);
-        parcel.writeTypedList(this.reviews);
-        parcel.writeStringList(this.categoryTypes);
-        parcel.writeValue(this.runtime);
-        parcel.writeString(this.status);
+        parcel.writeValue(id);
+        parcel.writeValue(page);
+        parcel.writeValue(totalPages);
+        parcel.writeString(header);
+        parcel.writeString(posterPath);
+        parcel.writeString(description);
+        parcel.writeString(releaseDate);
+        parcel.writeTypedList(genres);
+        parcel.writeTypedList(videos);
+        parcel.writeTypedList(crews);
+        parcel.writeTypedList(casts);
+        parcel.writeTypedList(reviews);
+        parcel.writeStringList(categoryTypes);
+        parcel.writeTypedList(similarMovies);
+        parcel.writeValue(runtime);
+        parcel.writeString(status);
     }
 
 }
