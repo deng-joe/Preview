@@ -13,6 +13,7 @@ import com.joe.preview.data.local.converters.CastConverter;
 import com.joe.preview.data.local.converters.CrewConverter;
 import com.joe.preview.data.local.converters.GenreConverter;
 import com.joe.preview.data.local.converters.ReviewConverter;
+import com.joe.preview.data.local.converters.SeriesConverter;
 import com.joe.preview.data.local.converters.StringListConverter;
 import com.joe.preview.data.local.converters.VideoConverter;
 import com.joe.preview.data.remote.Cast;
@@ -74,6 +75,10 @@ public class Series implements Parcelable {
     @TypeConverters(StringListConverter.class)
     private List<String> categoryTypes;
 
+    @Expose
+    @TypeConverters(SeriesConverter.class)
+    private List<Series> similarSeries;
+
     @SerializedName("status")
     @Expose
     private String status;
@@ -89,6 +94,7 @@ public class Series implements Parcelable {
         videos = new ArrayList<>();
         reviews = new ArrayList<>();
         categoryTypes = new ArrayList<>();
+        similarSeries = new ArrayList<>();
     }
 
     public Long getId() {
@@ -189,6 +195,14 @@ public class Series implements Parcelable {
         this.categoryTypes = categoryTypes;
     }
 
+    public List<Series> getSimilarSeries() {
+        return similarSeries;
+    }
+
+    public void setSimilarSeries(List<Series> similarSeries) {
+        this.similarSeries = similarSeries;
+    }
+
     public String getStatus() {
         return status;
     }
@@ -222,6 +236,7 @@ public class Series implements Parcelable {
         casts = in.createTypedArrayList(Cast.CREATOR);
         reviews = in.createTypedArrayList(Review.CREATOR);
         categoryTypes = in.createStringArrayList();
+        similarSeries = in.createTypedArrayList(Series.CREATOR);
         status = in.readString();
         numberOfSeasons = (Long) in.readValue(Long.class.getClassLoader());
     }
@@ -257,6 +272,7 @@ public class Series implements Parcelable {
         parcel.writeTypedList(casts);
         parcel.writeTypedList(reviews);
         parcel.writeStringList(categoryTypes);
+        parcel.writeTypedList(similarSeries);
         parcel.writeString(status);
         parcel.writeValue(numberOfSeasons);
     }
