@@ -1,4 +1,5 @@
 <resources>
+
     <string name="app_name">Preview</string>
 
     <string name="drawer_open">Open</string>
@@ -21,5 +22,27 @@
         <item>@drawable/ic_top_rated</item>
         <item>@drawable/ic_menu_close</item>
     </integer-array>
+
+    <string name="menu_item_image">Menu Item Image</string>
+
+    <string name="player_error">Error initializing YouTube player: %s</string>
+    <string name="seek_to">Jump To</string>
+    <string name="seek_to_hint">Seconds</string>
+
+    <string name="search_hint">Search…</string>
+    <string name="movie_search_query_hint">Search Movies…</string>
+    <string name="series_search_query_hint">Search Series…</string>
+    <string name="movie_empty_text">No movies in the list</string>
+    <string name="series_empty_text">No shows in the list</string>
+
+    <string name="movie_title_similar_movies">Similar Movies</string>
+    <string name="series_title_similar_movies">Similar Shows</string>
+    <string name="title_reviews">Reviews</string>
+    <string name="text_read_more">READ MORE</string>
+    <string name="title_cast">Cast</string>
+    <string name="title_crew">Crew</string>
+    <string name="read_less">READ LESS</string>
+    <string name="read_more">READ MORE</string>
+    <string name="detail_tv_similar">Similar TV Series</string>
 
 </resources>
