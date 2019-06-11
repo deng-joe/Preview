@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData;
 import com.joe.preview.data.local.dao.MovieDao;
 import com.joe.preview.data.local.entity.Movie;
 import com.joe.preview.data.remote.api.MovieApiService;
-import com.joe.preview.data.repository.MovieRepository;
+import com.joe.preview.repository.MovieRepository;
 
 import javax.inject.Inject;
 

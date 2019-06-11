@@ -1,4 +1,4 @@
-package com.joe.preview.data.repository;
+package com.joe.preview.repository;
 
 import androidx.annotation.NonNull;
 

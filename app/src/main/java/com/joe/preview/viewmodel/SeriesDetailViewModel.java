@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData;
 import com.joe.preview.data.local.dao.SeriesDao;
 import com.joe.preview.data.local.entity.Series;
 import com.joe.preview.data.remote.api.SeriesApiService;
-import com.joe.preview.data.repository.SeriesRepository;
+import com.joe.preview.repository.SeriesRepository;
 
 import javax.inject.Inject;
 
