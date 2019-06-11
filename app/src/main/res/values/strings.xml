@@ -1,3 +1,25 @@
 <resources>
     <string name="app_name">Preview</string>
+
+    <string name="drawer_open">Open</string>
+    <string name="drawer_close">Close</string>
+
+    <string name="upcoming">upcoming</string>
+    <string name="popular">popular</string>
+    <string name="top_rated">top_rated</string>
+
+    <string-array name="menu_names">
+        <item>@string/popular</item>
+        <item>@string/upcoming</item>
+        <item>@string/top_rated</item>
+        <item>@string/drawer_close</item>
+    </string-array>
+
+    <integer-array name="menu_icons">
+        <item>@drawable/ic_popular</item>
+        <item>@drawable/ic_upcoming</item>
+        <item>@drawable/ic_top_rated</item>
+        <item>@drawable/ic_menu_close</item>
+    </integer-array>
+
 </resources>
