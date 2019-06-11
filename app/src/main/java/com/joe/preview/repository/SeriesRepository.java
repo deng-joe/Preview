@@ -8,6 +8,7 @@ import com.joe.preview.data.remote.api.SeriesApiService;
 import com.joe.preview.data.remote.model.SeriesApiResponse;
 import com.joe.preview.data.remote.resources.NetworkBoundResource;
 import com.joe.preview.data.remote.resources.Resource;
+import com.joe.preview.utils.PreviewUtil;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -64,7 +65,7 @@ public class SeriesRepository {
                 List<Series> seriesList = seriesDao.getSeriesByPage(page);
                 if (seriesList == null || seriesList.isEmpty())
                     return Flowable.empty();
-                return null;
+                return Flowable.just(PreviewUtil.getSeriesByType(type, seriesList));
             }
 
             @NonNull
@@ -168,7 +169,7 @@ public class SeriesRepository {
                 List<Series> seriesList = seriesDao.getSeriesByPage(page);
                 if (seriesList == null || seriesList.isEmpty())
                     return Flowable.empty();
-                return null;
+                return Flowable.just(PreviewUtil.getSeriesByType(query, seriesList));
             }
 
             @NonNull

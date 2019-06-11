@@ -8,6 +8,7 @@ import com.joe.preview.data.remote.api.MovieApiService;
 import com.joe.preview.data.remote.model.MovieApiResponse;
 import com.joe.preview.data.remote.resources.NetworkBoundResource;
 import com.joe.preview.data.remote.resources.Resource;
+import com.joe.preview.utils.PreviewUtil;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -64,7 +65,7 @@ public class MovieRepository {
                 List<Movie> movies = movieDao.getMoviesByPage(page);
                 if (movies == null || movies.isEmpty())
                     return Flowable.empty();
-                return null;
+                return Flowable.just(PreviewUtil.getMoviesByType(type, movies));
             }
 
             @NonNull
@@ -168,7 +169,7 @@ public class MovieRepository {
                 List<Movie> movies = movieDao.getMoviesByPage(page);
                 if (movies == null || movies.isEmpty())
                     return Flowable.empty();
-                return null;
+                return Flowable.just(PreviewUtil.getMoviesByType(query, movies));
             }
 
             @NonNull
