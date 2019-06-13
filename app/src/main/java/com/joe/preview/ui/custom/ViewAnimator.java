@@ -17,7 +17,7 @@ import com.joe.preview.utils.PreviewUtil;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ViewAnimator {
+class ViewAnimator {
 
     private final int ANIMATION_DURATION = 175;
 
@@ -32,10 +32,10 @@ public class ViewAnimator {
 
     private List<View> viewList = new ArrayList<>();
 
-    public ViewAnimator(AppCompatActivity appCompatActivity,
-                        List<SlideMenuItem> slideMenuItems,
-                        DrawerLayout drawerLayout,
-                        ViewAnimatorListener animatorListener) {
+    ViewAnimator(AppCompatActivity appCompatActivity,
+                 List<SlideMenuItem> slideMenuItems,
+                 DrawerLayout drawerLayout,
+                 ViewAnimatorListener animatorListener) {
         this.appCompatActivity = appCompatActivity;
         this.slideMenuItems = slideMenuItems;
         this.drawerLayout = drawerLayout;
@@ -51,7 +51,7 @@ public class ViewAnimator {
             view.setEnabled(false);
     }
 
-    public void displayMenuContent() {
+    void displayMenuContent() {
         setViewsClickable();
         viewList.clear();
 
@@ -210,7 +210,7 @@ public class ViewAnimator {
         }
     }
 
-    private int getSelectedPosition() {
+    public int getSelectedPosition() {
         return selectedPosition;
     }
 
