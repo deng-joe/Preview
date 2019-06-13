@@ -78,6 +78,7 @@ class ViewAnimator {
 
         double aspectRatioWidth = 11.1;
         Double width = Math.ceil((aspectRatioWidth * screenWidth) / 100);
+
         double aspectRatioHeight = 6.756;
         Double height = Math.ceil((aspectRatioHeight * screenHeight) / 100);
 
@@ -85,7 +86,7 @@ class ViewAnimator {
         layoutParams.height = height.intValue();
 
         imageView.setLayoutParams(layoutParams);
-        imageView.setImageResource(slideMenuItems.get(position).getImageRes());
+        imageView.setImageResource(slideMenuItems.get(position).getImageResolution());
     }
 
     private void updateMenuItemContainerView(int position, View viewMenu) {
@@ -210,7 +211,7 @@ class ViewAnimator {
         }
     }
 
-    public int getSelectedPosition() {
+    int getSelectedPosition() {
         return selectedPosition;
     }
 

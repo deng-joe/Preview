@@ -3,11 +3,11 @@ package com.joe.preview.ui.custom;
 public class SlideMenuItem {
 
     private String name;
-    private int imageRes;
+    private int imageResolution;
 
-    public SlideMenuItem(String name, int imageRes) {
+    public SlideMenuItem(String name, int imageResolution) {
         this.name = name;
-        this.imageRes = imageRes;
+        this.imageResolution = imageResolution;
     }
 
     public String getName() {
@@ -18,12 +18,12 @@ public class SlideMenuItem {
         this.name = name;
     }
 
-    public int getImageRes() {
-        return imageRes;
+    int getImageResolution() {
+        return imageResolution;
     }
 
-    public void setImageRes(int imageRes) {
-        this.imageRes = imageRes;
+    public void setImageResolution(int imageRes) {
+        this.imageResolution = imageRes;
     }
 
 }

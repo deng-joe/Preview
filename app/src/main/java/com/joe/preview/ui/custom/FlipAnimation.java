@@ -13,7 +13,7 @@ public class FlipAnimation extends Animation {
     private float centerY;
     private Camera camera;
 
-    public FlipAnimation(float fromDegrees, float toDegrees, float centerX, float centerY) {
+    FlipAnimation(float fromDegrees, float toDegrees, float centerX, float centerY) {
         this.fromDegrees = fromDegrees;
         this.toDegrees = toDegrees;
         this.centerX = centerX;
