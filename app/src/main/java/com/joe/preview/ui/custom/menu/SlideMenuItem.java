@@ -1,4 +1,4 @@
-package com.joe.preview.ui.custom;
+package com.joe.preview.ui.custom.menu;
 
 public class SlideMenuItem {
 

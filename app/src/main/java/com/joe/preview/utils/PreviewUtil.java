@@ -12,7 +12,7 @@ import com.joe.preview.R;
 import com.joe.preview.data.local.entity.Movie;
 import com.joe.preview.data.local.entity.Series;
 import com.joe.preview.data.remote.model.Genre;
-import com.joe.preview.ui.custom.SlideMenuItem;
+import com.joe.preview.ui.custom.menu.SlideMenuItem;
 
 import java.text.ParsePosition;
 import java.text.SimpleDateFormat;
