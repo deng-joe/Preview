@@ -17,6 +17,8 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.util.AttributeSet;
 
+import androidx.annotation.ColorInt;
+import androidx.annotation.ColorRes;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatImageView;
 import androidx.core.content.ContextCompat;
@@ -154,7 +156,7 @@ public class CircleImageView extends AppCompatImageView {
         return borderColor;
     }
 
-    public void setBorderColor(int borderColor) {
+    public void setBorderColor(@ColorInt int borderColor) {
         if (borderColor == this.borderColor)
             return;
 
@@ -163,15 +165,15 @@ public class CircleImageView extends AppCompatImageView {
         invalidate();
     }
 
-    public void setBorderColorResource(int borderColorResource) {
-        setBorderColor(getContext().getResources().getColor(borderColorResource));
+    public void setBorderColorResource(@ColorRes int borderColorResource) {
+        setBorderColor(ContextCompat.getColor(getContext(), borderColorResource));
     }
 
     public int getFillColor() {
         return fillColor;
     }
 
-    public void setFillColor(int fillColor) {
+    public void setFillColor(@ColorInt int fillColor) {
         if (fillColor == this.fillColor)
             return;
 
@@ -180,7 +182,7 @@ public class CircleImageView extends AppCompatImageView {
         invalidate();
     }
 
-    public void setFillColorResource(int fillColorResource) {
+    public void setFillColorResource(@ColorRes int fillColorResource) {
         ContextCompat.getColor(getContext(), fillColorResource);
     }
 
