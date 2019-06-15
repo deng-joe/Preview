@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data class="ReviewItemBinding" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingStart="@dimen/padding_large"
+        android:paddingTop="@dimen/padding_small"
+        android:paddingEnd="@dimen/padding_large"
+        android:paddingBottom="@dimen/padding_small">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/itemReviewTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:paddingTop="@dimen/margin_large"
+            android:paddingEnd="@dimen/padding"
+            android:paddingBottom="@dimen/padding_xsmall"
+            android:textColor="@color/background_activity_detail"
+            android:textSize="@dimen/font_x_medium_large"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.joe.preview.ui.custom.views.JustifyTextView
+            android:id="@+id/itemReviewDesc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:lineSpacingExtra="4dp"
+            android:paddingTop="@dimen/padding_xsmall"
+            android:paddingBottom="@dimen/margin_large"
+            android:textColor="@color/text_desc_activity_detail"
+            android:textSize="@dimen/font_small_medium"
+            app:layout_constraintTop_toBottomOf="@id/itemReviewTitle" />
+
+        <View
+            android:id="@+id/line"
+            android:layout_width="match_parent"
+            android:layout_height="0.7dp"
+            android:background="@color/search_overlay"
+            app:layout_constraintTop_toBottomOf="@id/itemReviewDesc" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
