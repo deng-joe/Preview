@@ -7,52 +7,52 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.joe.preview.data.local.entity.Movie;
+import com.joe.preview.data.local.entity.Series;
 import com.joe.preview.databinding.SimilarMoviesListItemBinding;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
-public class SimilarMoviesListAdapter extends RecyclerView.Adapter<SimilarMoviesListAdapter.SimilarMoviesViewHolder> {
+public class SimilarSeriesListAdapter extends RecyclerView.Adapter<SimilarSeriesListAdapter.SimilarSeriesViewHolder> {
 
     private Activity activity;
-    private List<Movie> movies;
+    private List<Series> seriesList;
 
-    public SimilarMoviesListAdapter(Activity activity, List<Movie> movies) {
+    public SimilarSeriesListAdapter(Activity activity, List<Series> seriesList) {
         this.activity = activity;
-        this.movies = movies;
+        this.seriesList = seriesList;
     }
 
     @NonNull
     @Override
-    public SimilarMoviesViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public SimilarSeriesViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
         SimilarMoviesListItemBinding itemBinding = SimilarMoviesListItemBinding.inflate(inflater, parent, false);
-        return new SimilarMoviesViewHolder(itemBinding);
+        return new SimilarSeriesViewHolder(itemBinding);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull SimilarMoviesViewHolder holder, int position) {
-        Movie movie = getItem(position);
-        String imageUrl = movie.getPosterPath();
+    public void onBindViewHolder(@NonNull SimilarSeriesViewHolder holder, int position) {
+        Series series = getItem(position);
+        String imageUrl = series.getPosterPath();
         Picasso.get().load(imageUrl).into(holder.binding.itemImage);
     }
 
     @Override
     public int getItemCount() {
-        return movies.size();
+        return seriesList.size();
     }
 
-    public Movie getItem(int position) {
-        return movies.get(position);
+    public Series getItem(int position) {
+        return seriesList.get(position);
     }
 
 
-    class SimilarMoviesViewHolder extends RecyclerView.ViewHolder {
+    class SimilarSeriesViewHolder extends RecyclerView.ViewHolder {
 
         private SimilarMoviesListItemBinding binding;
 
-        public SimilarMoviesViewHolder(SimilarMoviesListItemBinding binding) {
+        public SimilarSeriesViewHolder(SimilarMoviesListItemBinding binding) {
             super(binding.getRoot());
             this.binding = binding;
         }
