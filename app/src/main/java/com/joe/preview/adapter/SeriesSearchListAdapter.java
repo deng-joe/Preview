@@ -59,7 +59,7 @@ public class SeriesSearchListAdapter extends RecyclerView.Adapter<SeriesSearchLi
 
         private MoviesListItemBinding binding;
 
-        public SeriesSearchViewHolder(MoviesListItemBinding binding) {
+        SeriesSearchViewHolder(MoviesListItemBinding binding) {
             super(binding.getRoot());
             this.binding = binding;
 
