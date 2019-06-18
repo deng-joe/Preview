@@ -19,7 +19,7 @@ public class RoomDatabaseModule {
     @Provides
     @Singleton
     PreviewRoomDatabase provideRoomDatabase(Application application) {
-        String database_name = "Entertainment;";
+        String database_name = "Entertainment";
         return Room.databaseBuilder(application,
                 PreviewRoomDatabase.class,
                 database_name)
