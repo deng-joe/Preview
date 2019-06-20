@@ -2,6 +2,7 @@ package com.joe.preview.di.component;
 
 import android.app.Application;
 
+import com.joe.preview.controllers.PreviewController;
 import com.joe.preview.di.module.ActivityModule;
 import com.joe.preview.di.module.ApiModule;
 import com.joe.preview.di.module.FragmentModule;
@@ -39,5 +40,7 @@ public interface PreviewComponent {
         PreviewComponent build();
 
     }
+
+    void inject(PreviewController controller);
 
 }
