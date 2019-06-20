@@ -15,7 +15,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".ui.activity.SeriesSearchActivity"></activity>
+        <activity android:name=".ui.activity.VideoActivity"></activity>
+        <activity android:name=".ui.activity.SeriesSearchActivity" />
         <activity android:name=".ui.activity.MovieSearchActivity" />
         <activity android:name=".ui.activity.SeriesDetailActivity" />
         <activity android:name=".ui.activity.MovieDetailActivity" />
