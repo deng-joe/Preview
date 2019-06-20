@@ -1,4 +1,4 @@
-package com.joe.preview.di;
+package com.joe.preview.di.module;
 
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;

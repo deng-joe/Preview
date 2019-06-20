@@ -1,4 +1,4 @@
-package com.joe.preview.di;
+package com.joe.preview.di.module;
 
 import com.joe.preview.ui.fragment.MoviesListFragment;
 import com.joe.preview.ui.fragment.SeriesListFragment;
