@@ -118,6 +118,7 @@ public class NewtonCradleLoading extends LinearLayout {
                     cradleBallTwo.startAnimation(shakeLeftAnimation);
                     cradleBallThree.startAnimation(shakeLeftAnimation);
                     cradleBallFour.startAnimation(shakeLeftAnimation);
+                    cradleBallFive.startAnimation(rotateRightAnimation);
                 }
             }
 

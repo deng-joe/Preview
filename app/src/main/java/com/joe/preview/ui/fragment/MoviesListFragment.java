@@ -107,7 +107,9 @@ public class MoviesListFragment extends BaseFragment implements RecyclerItemClic
         movieListViewModel = ViewModelProviders.of(this, viewModelFactory).get(MovieListViewModel.class);
         movieListViewModel.setType(MENU_MOVIE_ITEM.get(getArguments() == null ? 0 : getArguments().getInt(INTENT_CATEGORY)));
         movieListViewModel.getMoviesLiveData().observe(this, listResource -> {
-            if (!listResource.data.isEmpty())
+            if (listResource.isLoading()) {
+
+            } else if (!listResource.data.isEmpty())
                 updateMoviesList(listResource.data);
             else
                 handleErrorResponse();
