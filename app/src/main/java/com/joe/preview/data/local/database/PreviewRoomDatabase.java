@@ -21,7 +21,7 @@ import com.joe.preview.data.local.dao.SeriesDao;
 import com.joe.preview.data.local.entity.Movie;
 import com.joe.preview.data.local.entity.Series;
 
-@Database(entities = {Movie.class, Series.class}, version = 1, exportSchema = false)
+@Database(entities = {Movie.class, Series.class}, version = 2, exportSchema = false)
 @TypeConverters({GenreConverter.class, VideoConverter.class, CreditResponseConverter.class, MovieConverter.class, CastConverter.class,
         CrewConverter.class, StringListConverter.class, SeriesConverter.class, ReviewConverter.class})
 public abstract class PreviewRoomDatabase extends RoomDatabase {
