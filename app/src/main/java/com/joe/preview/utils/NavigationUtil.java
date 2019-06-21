@@ -3,10 +3,14 @@ package com.joe.preview.utils;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 
 import androidx.core.app.ActivityCompat;
 import androidx.core.app.ActivityOptionsCompat;
+import androidx.navigation.NavOptions;
+import androidx.navigation.Navigation;
 
+import com.joe.preview.R;
 import com.joe.preview.constants.PreviewConstants;
 import com.joe.preview.data.local.entity.Movie;
 import com.joe.preview.data.local.entity.Series;
@@ -44,6 +48,19 @@ public class NavigationUtil implements PreviewConstants {
     public static void redirectToSeriesSearch(Activity activity) {
         Intent intent = new Intent(activity, SeriesSearchActivity.class);
         activity.startActivity(intent);
+    }
+
+    public static void replaceFragment(Activity activity, int nav_id, int selectedPosition) {
+        Bundle bundle = new Bundle();
+        bundle.putInt(INTENT_CATEGORY, selectedPosition);
+        Navigation.findNavController(activity, R.id.fragment_nav_host)
+                .navigate(nav_id, bundle, new NavOptions.Builder()
+                        .setLaunchSingleTop(true)
+                        .setEnterAnim(R.anim.flip_right_in)
+                        .setExitAnim(R.anim.flip_right_out)
+                        .setPopEnterAnim(R.anim.flip_left_in)
+                        .setPopExitAnim(R.anim.flip_left_out)
+                        .build());
     }
 
 }
