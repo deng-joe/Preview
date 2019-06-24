@@ -12,7 +12,7 @@ import com.joe.preview.constants.PreviewConstants;
 import com.joe.preview.data.remote.model.Cast;
 import com.joe.preview.data.remote.model.Crew;
 import com.joe.preview.databinding.CreditListWithItemBinding;
-import com.squareup.picasso.Picasso;
+import com.joe.preview.glide.GlideApp;
 
 import java.util.Collections;
 import java.util.List;
@@ -59,14 +59,14 @@ public class CreditListAdapter extends RecyclerView.Adapter<CreditListAdapter.Cr
     public void onBindViewHolder(@NonNull CreditViewHolder holder, int position) {
         if (isCast()) {
             Cast cast = getCastItem(position);
-            Picasso.get().load(String.format(PreviewConstants.IMAGE_URL, cast.getProfilePath()))
+            GlideApp.with(context).load(String.format(PreviewConstants.IMAGE_URL, cast.getProfilePath()))
                     .error(R.drawable.ic_account_circle)
                     .into(holder.binding.profileImage);
             holder.binding.textViewName.setText(cast.getName());
             holder.binding.textViewInfo.setText(cast.getCharacter());
         } else {
             Crew crew = getCrewItem(position);
-            Picasso.get().load(String.format(PreviewConstants.IMAGE_URL, crew.getProfilePath()))
+            GlideApp.with(context).load(String.format(PreviewConstants.IMAGE_URL, crew.getProfilePath()))
                     .error(R.drawable.ic_account_circle)
                     .into(holder.binding.profileImage);
             holder.binding.textViewName.setText(crew.getName());
