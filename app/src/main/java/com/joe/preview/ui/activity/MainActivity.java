@@ -2,7 +2,6 @@ package com.joe.preview.ui.activity;
 
 import android.os.Bundle;
 import android.view.View;
-import android.widget.RadioGroup;
 
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
@@ -41,13 +40,13 @@ public class MainActivity extends BaseActivity implements HasSupportFragmentInje
         getSupportActionBar().setDisplayHomeAsUpEnabled(false);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
-        binding.includedLayout.radioGroup.setOnCheckedChangeListener(this::onCheckedChanged);
+        onCheckedChanged();
 
         menuDrawerToggle = new MenuDrawerToggle(this, binding.drawerLayout, binding.includedLayout.toolbar,
                 binding.leftDrawer, R.string.drawer_open, R.string.drawer_close, PreviewUtil.getMenuList(getApplicationContext())) {
             @Override
             public void onSwitch(int selectedPosition, int topPosition) {
-                onCheckedChanged(binding.includedLayout.radioGroup, binding.includedLayout.radioGroup.getCheckedRadioButtonId());
+                onCheckedChanged();
             }
         };
 
@@ -72,25 +71,30 @@ public class MainActivity extends BaseActivity implements HasSupportFragmentInje
     }
 
     public void handleSearchIconClick(View view) {
-        switch (binding.includedLayout.radioGroup.getCheckedRadioButtonId()) {
-            case R.id.buttonMovie:
+        switch (binding.bottomNav.getSelectedItemId()) {
+            case R.id.movies:
                 NavigationUtil.redirectToMovieSearch(this);
                 break;
-            case R.id.buttonSeries:
+            case R.id.shows:
                 NavigationUtil.redirectToSeriesSearch(this);
                 break;
         }
     }
 
-    private void onCheckedChanged(RadioGroup radioGroup, int position) {
-        switch (position) {
-            case R.id.buttonMovie:
-                NavigationUtil.replaceFragment(this, R.id.moviesListFragment, menuDrawerToggle.getSelectedPosition());
-                break;
-            case R.id.buttonSeries:
-                NavigationUtil.replaceFragment(this, R.id.seriesListFragment, menuDrawerToggle.getSelectedPosition());
-                break;
-        }
+    private void onCheckedChanged() {
+        binding.bottomNav.setOnNavigationItemSelectedListener(menuItem -> {
+            switch (menuItem.getItemId()) {
+                case R.id.movies:
+                    NavigationUtil.replaceFragment(MainActivity.this, R.id.moviesListFragment,
+                            menuDrawerToggle.getSelectedPosition());
+                    return true;
+                case R.id.shows:
+                    NavigationUtil.replaceFragment(MainActivity.this, R.id.seriesListFragment,
+                            menuDrawerToggle.getSelectedPosition());
+                    return true;
+            }
+            return false;
+        });
     }
 
     @Override
