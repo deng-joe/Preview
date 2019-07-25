@@ -127,8 +127,8 @@
                             app:cp_itemBackgroundPressed="@color/blue"
                             app:cp_simplified="true"
                             app:cp_textPaddingBottom="@dimen/padding_xsmall"
-                            app:cp_textPaddingLeft="@dimen/padding_medium"
-                            app:cp_textPaddingRight="@dimen/padding_medium"
+                            app:cp_textPaddingStart="@dimen/padding_medium"
+                            app:cp_textPaddingEnd="@dimen/padding_medium"
                             app:cp_textPaddingTop="@dimen/padding_small"
                             app:layout_constraintStart_toEndOf="@id/layout_imdb"
                             app:layout_constraintTop_toBottomOf="@id/movie_title" />
@@ -159,8 +159,8 @@
                             app:cp_itemBackgroundPressed="@color/light_blue"
                             app:cp_simplified="true"
                             app:cp_textPaddingBottom="@dimen/padding_xsmall"
-                            app:cp_textPaddingLeft="@dimen/padding_medium"
-                            app:cp_textPaddingRight="@dimen/padding_medium"
+                            app:cp_textPaddingStart="@dimen/padding_medium"
+                            app:cp_textPaddingEnd="@dimen/padding_medium"
                             app:cp_textPaddingTop="@dimen/padding_small"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toBottomOf="@+id/movie_desc" />
