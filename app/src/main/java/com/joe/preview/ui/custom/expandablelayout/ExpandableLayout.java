@@ -209,7 +209,7 @@ public class ExpandableLayout extends FrameLayout {
             state = COLLAPSED;
         else if (expansion == 1)
             state = EXPANDED;
-        else if (delta < 1)
+        else if (delta < 0)
             state = COLLAPSING;
         else if (delta > 0)
             state = EXPANDING;
