@@ -1,6 +1,7 @@
 package com.joe.preview.viewmodel;
 
 import androidx.lifecycle.MutableLiveData;
+import androidx.lifecycle.ViewModel;
 
 import com.joe.preview.data.local.dao.SeriesDao;
 import com.joe.preview.data.local.entity.Series;
@@ -9,7 +10,7 @@ import com.joe.preview.repository.SeriesRepository;
 
 import javax.inject.Inject;
 
-public class SeriesDetailViewModel extends BaseViewModel {
+public class SeriesDetailViewModel extends ViewModel {
 
     private SeriesRepository seriesRepository;
     private MutableLiveData<Series> seriesDetailsLiveData = new MutableLiveData<>();

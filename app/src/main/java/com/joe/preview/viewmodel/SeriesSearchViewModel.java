@@ -1,6 +1,7 @@
 package com.joe.preview.viewmodel;
 
 import androidx.lifecycle.MutableLiveData;
+import androidx.lifecycle.ViewModel;
 
 import com.joe.preview.data.local.dao.SeriesDao;
 import com.joe.preview.data.local.entity.Series;
@@ -15,7 +16,7 @@ import javax.inject.Inject;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 
-public class SeriesSearchViewModel extends BaseViewModel {
+public class SeriesSearchViewModel extends ViewModel {
 
     private SeriesRepository seriesRepository;
     private MutableLiveData<Resource<List<Series>>> seriesLiveData = new MutableLiveData<>();
