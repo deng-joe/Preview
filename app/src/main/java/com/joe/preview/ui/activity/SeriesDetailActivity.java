@@ -137,6 +137,7 @@ public class SeriesDetailActivity extends BaseActivity {
         binding.includedSimilarLayout.moviesList.setLayoutManager(new LinearLayoutManager(getApplicationContext(),
                 LinearLayoutManager.HORIZONTAL, false));
         binding.includedSimilarLayout.moviesList.setVisibility(View.VISIBLE);
+        binding.includedSimilarLayout.movieSimilarTitle.setText(getString(R.string.series_title_similar_movies));
 
         SimilarSeriesListAdapter similarSeriesListAdapter = new SimilarSeriesListAdapter(this, seriesList);
         binding.includedSimilarLayout.moviesList.setAdapter(similarSeriesListAdapter);

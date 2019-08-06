@@ -58,6 +58,7 @@ public class SeriesSearchActivity extends BaseActivity implements SearchView.OnQ
         binding.search.setImeOptions(EditorInfo.IME_ACTION_SEARCH);
         binding.search.setIconifiedByDefault(false);
         binding.search.setOnQueryTextListener(this);
+        binding.search.setQueryHint(getString(R.string.series_search_query_hint));
 
         EditText searchEditText = binding.search.findViewById(androidx.appcompat.R.id.search_src_text);
         searchEditText.setTextColor(getResources().getColor(android.R.color.white));
@@ -112,6 +113,7 @@ public class SeriesSearchActivity extends BaseActivity implements SearchView.OnQ
         hideLoader();
         binding.includedLayout.moviesList.setVisibility(View.GONE);
         binding.includedLayout.emptyLayout.emptyContainer.setVisibility(View.VISIBLE);
+        binding.includedLayout.emptyLayout.favDisplayText.setText(getString(R.string.series_empty_text));
     }
 
     private void displayLoader() {
