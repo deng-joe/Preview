@@ -21,9 +21,9 @@ public class MovieSearchListAdapter extends RecyclerView.Adapter<MovieSearchList
     private Activity activity;
     private List<Movie> trailers;
 
-    public MovieSearchListAdapter(Activity activity, List<Movie> trailers) {
+    public MovieSearchListAdapter(Activity activity) {
         this.activity = activity;
-        this.trailers = new ArrayList<>();
+        trailers = new ArrayList<>();
     }
 
     @NonNull
