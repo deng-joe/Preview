@@ -21,9 +21,9 @@ public class SeriesSearchListAdapter extends RecyclerView.Adapter<SeriesSearchLi
     private Activity activity;
     private List<Series> trailers;
 
-    public SeriesSearchListAdapter(Activity activity, List<Series> trailers) {
+    public SeriesSearchListAdapter(Activity activity) {
         this.activity = activity;
-        this.trailers = new ArrayList<>();
+        trailers = new ArrayList<>();
     }
 
     @NonNull
