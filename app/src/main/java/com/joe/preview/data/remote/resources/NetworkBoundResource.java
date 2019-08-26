@@ -40,12 +40,12 @@ public abstract class NetworkBoundResource<ResultType, RequestType> {
         return results;
     }
 
-    protected void onFetchFailed() {
+    private void onFetchFailed() {
 
     }
 
     @WorkerThread
-    protected RequestType processResponse(Resource<RequestType> response) {
+    private RequestType processResponse(Resource<RequestType> response) {
         return response.data;
     }
 

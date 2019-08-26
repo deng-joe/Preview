@@ -26,23 +26,23 @@ public class CreditListAdapter extends RecyclerView.Adapter<CreditListAdapter.Cr
     private List<Cast> casts;
     private List<Crew> crews;
 
-    public CreditListAdapter(String type, Context context) {
-        this.type = type;
+    public CreditListAdapter(Context context, String type) {
         this.context = context;
+        this.type = type;
         casts = Collections.emptyList();
         crews = Collections.emptyList();
     }
 
     public CreditListAdapter(Context context, List<Cast> casts) {
-        type = CREDIT_CAST;
         this.context = context;
+        type = CREDIT_CAST;
         this.casts = casts;
         crews = Collections.emptyList();
     }
 
     public CreditListAdapter(Context context, String type, List<Crew> crews) {
-        this.type = type;
         this.context = context;
+        this.type = type;
         casts = Collections.emptyList();
         this.crews = crews;
     }
@@ -87,11 +87,11 @@ public class CreditListAdapter extends RecyclerView.Adapter<CreditListAdapter.Cr
         return Boolean.FALSE;
     }
 
-    public Cast getCastItem(int position) {
+    private Cast getCastItem(int position) {
         return casts.get(position);
     }
 
-    public Crew getCrewItem(int position) {
+    private Crew getCrewItem(int position) {
         return crews.get(position);
     }
 

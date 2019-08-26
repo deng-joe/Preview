@@ -22,7 +22,7 @@ public class MovieSearchViewModel extends ViewModel {
     private MutableLiveData<Resource<List<Movie>>> moviesLiveData = new MutableLiveData<>();
 
     @Inject
-    public MovieSearchViewModel(MovieDao movieDao, MovieApiService movieApiService) {
+    MovieSearchViewModel(MovieDao movieDao, MovieApiService movieApiService) {
         movieRepository = new MovieRepository(movieDao, movieApiService);
     }
 

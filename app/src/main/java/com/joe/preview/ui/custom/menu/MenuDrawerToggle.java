@@ -18,13 +18,13 @@ public abstract class MenuDrawerToggle extends ActionBarDrawerToggle implements 
     private ViewAnimator viewAnimator;
     private LinearLayout layoutView;
 
-    public MenuDrawerToggle(AppCompatActivity appCompatActivity,
-                            DrawerLayout drawerLayout,
-                            Toolbar toolbar,
-                            LinearLayout layoutView,
-                            int openDrawerContentDescRes,
-                            int closeDrawerContentDescRes,
-                            List<SlideMenuItem> slideMenuItems) {
+    protected MenuDrawerToggle(AppCompatActivity appCompatActivity,
+                               DrawerLayout drawerLayout,
+                               Toolbar toolbar,
+                               LinearLayout layoutView,
+                               int openDrawerContentDescRes,
+                               int closeDrawerContentDescRes,
+                               List<SlideMenuItem> slideMenuItems) {
         super(appCompatActivity, drawerLayout, toolbar, openDrawerContentDescRes, closeDrawerContentDescRes);
         this.appCompatActivity = appCompatActivity;
         this.layoutView = layoutView;

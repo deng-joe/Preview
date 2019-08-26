@@ -52,7 +52,7 @@ public class SimilarSeriesListAdapter extends RecyclerView.Adapter<SimilarSeries
 
         private SimilarMoviesListItemBinding binding;
 
-        public SimilarSeriesViewHolder(SimilarMoviesListItemBinding binding) {
+        SimilarSeriesViewHolder(SimilarMoviesListItemBinding binding) {
             super(binding.getRoot());
             this.binding = binding;
         }

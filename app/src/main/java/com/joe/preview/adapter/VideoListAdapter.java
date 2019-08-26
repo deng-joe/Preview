@@ -55,7 +55,7 @@ public class VideoListAdapter extends RecyclerView.Adapter<VideoListAdapter.Vide
                     public void onThumbnailLoaded(YouTubeThumbnailView youTubeThumbnailView, String s) {
                         youTubeThumbnailView.setVisibility(View.VISIBLE);
                         holder.binding.videoFrame.setVisibility(View.VISIBLE);
-                        holder.binding.buttonPlay.setImageResource(R.drawable.ic_play);
+                        holder.binding.buttonPlay.setImageResource(R.drawable.ic_play_circle_filled);
                         youTubeThumbnailLoader.release();
                     }
 
@@ -99,11 +99,11 @@ public class VideoListAdapter extends RecyclerView.Adapter<VideoListAdapter.Vide
             double aspectRatioWidth = 61.1;
             double aspectRatioHeight = 20.27;
 
-            Double width = Math.ceil((aspectRatioWidth * screenWidth) / 100);
-            Double height = Math.ceil((aspectRatioHeight * screenHeight) / 100);
+            double width = Math.ceil((aspectRatioWidth * screenWidth) / 100);
+            double height = Math.ceil((aspectRatioHeight * screenHeight) / 100);
 
-            layoutParams.width = width.intValue();
-            layoutParams.height = height.intValue();
+            layoutParams.width = (int) width;
+            layoutParams.height = (int) height;
         }
     }
 

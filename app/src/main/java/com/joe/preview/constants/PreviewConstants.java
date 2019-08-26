@@ -6,8 +6,6 @@ import java.util.Map;
 
 public interface PreviewConstants {
 
-    int PAGE_LIMIT = 10;
-
     String CREDIT_CAST = "cast";
     String CREDIT_CREW = "crew";
 
@@ -17,8 +15,6 @@ public interface PreviewConstants {
 
     String TRANSITION_IMAGE_NAME = "image";
 
-    String TYPE_MOVIES = "movie";
-    String TYPE_SERIES = "series";
     String MOVIES_POPULAR = "popular";
     String MOVIES_UPCOMING = "upcoming";
     String MOVIES_TOP_RATED = "top_rated";

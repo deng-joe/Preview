@@ -19,7 +19,7 @@ public class SeriesListViewModel extends BaseViewModel {
     private MutableLiveData<Resource<List<Series>>> seriesLiveData = new MutableLiveData<>();
 
     @Inject
-    public SeriesListViewModel(SeriesDao seriesDao, SeriesApiService seriesApiService) {
+    SeriesListViewModel(SeriesDao seriesDao, SeriesApiService seriesApiService) {
         seriesRepository = new SeriesRepository(seriesDao, seriesApiService);
     }
 
@@ -33,7 +33,7 @@ public class SeriesListViewModel extends BaseViewModel {
 
     public void loadMoreSeries(Long currentPage) {
         seriesRepository.loadSeriesByType(currentPage, type)
-                .doOnSubscribe(disposable -> addToDisposable(disposable))
+                .doOnSubscribe(this::addToDisposable)
                 .subscribe(listResource -> getSeriesLiveData().postValue(listResource));
     }
 

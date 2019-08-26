@@ -22,7 +22,7 @@ public class SeriesSearchViewModel extends ViewModel {
     private MutableLiveData<Resource<List<Series>>> seriesLiveData = new MutableLiveData<>();
 
     @Inject
-    public SeriesSearchViewModel(SeriesDao seriesDao, SeriesApiService seriesApiService) {
+    SeriesSearchViewModel(SeriesDao seriesDao, SeriesApiService seriesApiService) {
         seriesRepository = new SeriesRepository(seriesDao, seriesApiService);
     }
 

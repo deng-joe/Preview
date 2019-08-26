@@ -16,7 +16,7 @@ public class SeriesDetailViewModel extends ViewModel {
     private MutableLiveData<Series> seriesDetailsLiveData = new MutableLiveData<>();
 
     @Inject
-    public SeriesDetailViewModel(SeriesDao seriesDao, SeriesApiService seriesApiService) {
+    SeriesDetailViewModel(SeriesDao seriesDao, SeriesApiService seriesApiService) {
         seriesRepository = new SeriesRepository(seriesDao, seriesApiService);
     }
 

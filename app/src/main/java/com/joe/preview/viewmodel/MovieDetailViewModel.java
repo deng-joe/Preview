@@ -16,7 +16,7 @@ public class MovieDetailViewModel extends ViewModel {
     private MutableLiveData<Movie> movieDetailsLiveData = new MutableLiveData<>();
 
     @Inject
-    public MovieDetailViewModel(MovieDao movieDao, MovieApiService movieApiService) {
+    MovieDetailViewModel(MovieDao movieDao, MovieApiService movieApiService) {
         movieRepository = new MovieRepository(movieDao, movieApiService);
     }
 

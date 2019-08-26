@@ -19,7 +19,7 @@ public class MovieListViewModel extends BaseViewModel {
     private MutableLiveData<Resource<List<Movie>>> moviesLiveData = new MutableLiveData<>();
 
     @Inject
-    public MovieListViewModel(MovieDao movieDao, MovieApiService movieApiService) {
+    MovieListViewModel(MovieDao movieDao, MovieApiService movieApiService) {
         movieRepository = new MovieRepository(movieDao, movieApiService);
     }
 
@@ -33,7 +33,7 @@ public class MovieListViewModel extends BaseViewModel {
 
     public void loadMoreMovies(Long currentPage) {
         movieRepository.loadMoviesByType(currentPage, type)
-                .doOnSubscribe(disposable -> addToDisposable(disposable))
+                .doOnSubscribe(this::addToDisposable)
                 .subscribe(listResource -> getMoviesLiveData().postValue(listResource));
     }
 
