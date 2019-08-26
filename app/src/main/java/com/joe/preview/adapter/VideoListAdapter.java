@@ -55,7 +55,7 @@ public class VideoListAdapter extends RecyclerView.Adapter<VideoListAdapter.Vide
                     public void onThumbnailLoaded(YouTubeThumbnailView youTubeThumbnailView, String s) {
                         youTubeThumbnailView.setVisibility(View.VISIBLE);
                         holder.binding.videoFrame.setVisibility(View.VISIBLE);
-                        holder.binding.buttonPlay.setImageResource(R.drawable.ic_play_circle_filled);
+                        holder.binding.buttonPlay.setImageResource(R.drawable.ic_play_circle_outline);
                         youTubeThumbnailLoader.release();
                     }
 
