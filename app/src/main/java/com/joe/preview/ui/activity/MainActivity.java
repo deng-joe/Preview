@@ -1,11 +1,14 @@
 package com.joe.preview.ui.activity;
 
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 
+import androidx.annotation.NonNull;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.joe.preview.R;
 import com.joe.preview.databinding.MainActivityBinding;
 import com.joe.preview.ui.custom.menu.MenuDrawerToggle;
@@ -18,7 +21,8 @@ import dagger.android.AndroidInjection;
 import dagger.android.DispatchingAndroidInjector;
 import dagger.android.support.HasSupportFragmentInjector;
 
-public class MainActivity extends BaseActivity implements HasSupportFragmentInjector {
+public class MainActivity extends BaseActivity implements HasSupportFragmentInjector,
+        BottomNavigationView.OnNavigationItemSelectedListener {
 
     MainActivityBinding binding;
     MenuDrawerToggle menuDrawerToggle;
@@ -40,13 +44,13 @@ public class MainActivity extends BaseActivity implements HasSupportFragmentInje
         getSupportActionBar().setDisplayHomeAsUpEnabled(false);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
-        onCheckedChanged();
+        binding.bottomNav.setOnNavigationItemSelectedListener(this);
 
         menuDrawerToggle = new MenuDrawerToggle(this, binding.drawerLayout, binding.includedLayout.toolbar,
                 binding.leftDrawer, R.string.drawer_open, R.string.drawer_close, PreviewUtil.getMenuList(getApplicationContext())) {
             @Override
             public void onSwitch(int selectedPosition, int topPosition) {
-                onCheckedChanged();
+                binding.bottomNav.getSelectedItemId();
             }
         };
 
@@ -72,29 +76,13 @@ public class MainActivity extends BaseActivity implements HasSupportFragmentInje
 
     public void handleSearchIconClick(View view) {
         switch (binding.bottomNav.getSelectedItemId()) {
-            case R.id.movies:
+            case R.id.movie_menu:
                 NavigationUtil.redirectToMovieSearch(this);
                 break;
-            case R.id.shows:
+            case R.id.series_menu:
                 NavigationUtil.redirectToSeriesSearch(this);
                 break;
         }
-    }
-
-    private void onCheckedChanged() {
-        binding.bottomNav.setOnNavigationItemSelectedListener(menuItem -> {
-            switch (menuItem.getItemId()) {
-                case R.id.movies:
-                    NavigationUtil.replaceFragment(MainActivity.this, R.id.moviesListFragment,
-                            menuDrawerToggle.getSelectedPosition());
-                    return true;
-                case R.id.shows:
-                    NavigationUtil.replaceFragment(MainActivity.this, R.id.seriesListFragment,
-                            menuDrawerToggle.getSelectedPosition());
-                    return true;
-            }
-            return false;
-        });
     }
 
     @Override
@@ -111,6 +99,21 @@ public class MainActivity extends BaseActivity implements HasSupportFragmentInje
     @Override
     public DispatchingAndroidInjector<Fragment> supportFragmentInjector() {
         return dispatchingAndroidInjector;
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+        switch (menuItem.getItemId()) {
+            case R.id.movie_menu:
+                NavigationUtil.replaceFragment(this, R.id.moviesListFragment, menuDrawerToggle.getSelectedPosition());
+                break;
+            case R.id.series_menu:
+                NavigationUtil.replaceFragment(this, R.id.seriesListFragment, menuDrawerToggle.getSelectedPosition());
+                break;
+            default:
+                return false;
+        }
+        return true;
     }
 
 }
