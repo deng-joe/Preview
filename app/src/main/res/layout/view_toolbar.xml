@@ -13,40 +13,6 @@
             android:layout_marginStart="70dp"
             android:background="@color/background_activity_detail">
 
-            <RadioGroup
-                android:id="@+id/radioGroup"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:padding="@dimen/padding">
-
-                <androidx.appcompat.widget.AppCompatRadioButton
-                    android:id="@+id/buttonMovie"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="@dimen/margin"
-                    android:background="@drawable/movie_selector"
-                    android:button="@null"
-                    android:checked="true"
-                    android:text="@null" />
-
-                <View
-                    android:layout_width="0.8sp"
-                    android:layout_height="30dp"
-                    android:layout_marginTop="@dimen/margin_small"
-                    android:background="@android:color/white" />
-
-                <androidx.appcompat.widget.AppCompatRadioButton
-                    android:id="@+id/buttonSeries"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/margin"
-                    android:background="@drawable/series_selector"
-                    android:button="@null"
-                    android:text="@null" />
-
-            </RadioGroup>
-
             <View
                 android:id="@+id/searchIcon"
                 android:layout_width="@dimen/search_icon_size"
