@@ -45,9 +45,4 @@
     <string name="read_more">READ MORE</string>
     <string name="detail_tv_similar">Similar TV Series</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="movies">Movies</string>
-    <string name="tv_shows">TV Shows</string>
-
 </resources>

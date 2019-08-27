@@ -30,7 +30,7 @@ public class VideoResponse implements Parcelable {
         this.results = results;
     }
 
-    protected VideoResponse(Parcel in) {
+    private VideoResponse(Parcel in) {
         this.id = in.readLong();
         this.results = new ArrayList<>();
         in.readList(this.results, Video.class.getClassLoader());

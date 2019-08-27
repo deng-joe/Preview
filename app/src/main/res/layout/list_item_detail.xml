@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.joe.preview.ui.custom.expandablelayout.ExpandableLayout
+            android:id="@+id/expandable_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:el_duration="1000"
+            app:el_expanded="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/rootView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding_xsmall"
+                android:layout_marginBottom="@dimen/margin"
+                android:orientation="vertical"
+                android:paddingEnd="@dimen/padding">
+
+                <View
+                    android:id="@+id/line_above_cast_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginEnd="@dimen/padding"
+                    android:background="@color/detail_list_item_view"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/title_cast"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin"
+                    android:gravity="start"
+                    android:text="@string/title_cast"
+                    android:textAllCaps="true"
+                    android:textColor="@color/detail_list_item_text"
+                    android:textSize="@dimen/font_small_medium"
+                    app:layout_constraintTop_toBottomOf="@+id/line_above_cast_title" />
+
+                <View
+                    android:id="@+id/line_below_cast_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="@dimen/margin_small"
+                    android:background="@color/detail_list_item_view"
+                    app:layout_constraintTop_toBottomOf="@+id/title_cast" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/cast_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_large"
+                    app:layout_constraintTop_toBottomOf="@+id/line_below_cast_title" />
+
+                <View
+                    android:id="@+id/line_above_crew_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="@dimen/margin"
+                    android:background="@color/detail_list_item_view"
+                    app:layout_constraintTop_toBottomOf="@+id/cast_list" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/title_crew"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top"
+                    android:layout_marginTop="@dimen/margin"
+                    android:gravity="start"
+                    android:text="@string/title_crew"
+                    android:textAllCaps="true"
+                    android:textColor="@color/detail_list_item_text"
+                    android:textSize="@dimen/font_small_medium"
+                    app:layout_constraintTop_toBottomOf="@+id/line_above_crew_title" />
+
+                <View
+                    android:id="@+id/line_below_crew_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="@dimen/margin_small"
+                    android:background="@color/detail_list_item_view"
+                    app:layout_constraintTop_toBottomOf="@+id/title_crew" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/crew_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_large"
+                    app:layout_constraintTop_toBottomOf="@+id/line_below_crew_title" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="@dimen/margin"
+                    android:background="@color/detail_list_item_view"
+                    app:layout_constraintTop_toBottomOf="@+id/crew_list" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.joe.preview.ui.custom.expandablelayout.ExpandableLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

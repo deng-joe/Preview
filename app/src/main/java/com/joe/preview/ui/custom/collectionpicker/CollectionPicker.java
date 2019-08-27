@@ -1,6 +1,7 @@
 package com.joe.preview.ui.custom.collectionpicker;
 
 import android.animation.Animator;
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Color;
@@ -172,7 +173,9 @@ public class CollectionPicker extends LinearLayout {
     }
 
     private LayoutParams getItemLayoutParams() {
-        LayoutParams itemParams = new LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        LayoutParams itemParams = new LayoutParams(
+                ViewGroup.LayoutParams.WRAP_CONTENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT);
         itemParams.bottomMargin = itemMargin / 2;
         itemParams.topMargin = 0;
         itemParams.rightMargin = itemMargin;
@@ -195,23 +198,29 @@ public class CollectionPicker extends LinearLayout {
             row.setGravity(Gravity.START);
             row.setOrientation(HORIZONTAL);
 
-            ViewGroup.LayoutParams params = new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+            ViewGroup.LayoutParams params = new LayoutParams(
+                    ViewGroup.LayoutParams.MATCH_PARENT,
+                    ViewGroup.LayoutParams.WRAP_CONTENT);
 
             row.setLayoutParams(params);
 
             addView(row);
         }
+
+        row.addView(view, layoutParams);
+        animateItemView(view, position);
     }
 
     private StateListDrawable getSelector(String item) {
         return getSelectorNormal();
     }
 
+    @SuppressLint("ResourceAsColor")
     private StateListDrawable getSelectorNormal() {
         StateListDrawable states = new StateListDrawable();
 
         GradientDrawable gradientDrawable = new GradientDrawable();
-        gradientDrawable.setColor(ContextCompat.getColor(getContext(), layoutBackgroundColorPressed));
+        gradientDrawable.setColor(layoutBackgroundColorPressed);
         gradientDrawable.setCornerRadius(radius);
 
         states.addState(new int[]{android.R.attr.state_pressed}, gradientDrawable);
@@ -220,12 +229,10 @@ public class CollectionPicker extends LinearLayout {
 
         int index = new Random().nextInt(genreList.size());
 
-        int color = ContextCompat.getColor(getContext(), layoutBackgroundColorNormal);
-        if (useRandomColor) {
-            color = Color.parseColor(genreList.get(index));
-        }
+        if (useRandomColor)
+            layoutBackgroundColorNormal = Color.parseColor(genreList.get(index));
 
-        gradientDrawable.setColor(color);
+        gradientDrawable.setColor(layoutBackgroundColorNormal);
         gradientDrawable.setCornerRadius(radius);
 
         states.addState(new int[]{}, gradientDrawable);
@@ -246,17 +253,18 @@ public class CollectionPicker extends LinearLayout {
         this.useRandomColor = useRandomColor;
     }
 
+    @SuppressLint("ResourceAsColor")
     private StateListDrawable getSelectorSelected() {
         StateListDrawable states = new StateListDrawable();
 
         GradientDrawable gradientDrawable = new GradientDrawable();
-        gradientDrawable.setColor(ContextCompat.getColor(getContext(), layoutBackgroundColorNormal));
+        gradientDrawable.setColor(layoutBackgroundColorNormal);
         gradientDrawable.setCornerRadius(radius);
 
         states.addState(new int[]{android.R.attr.state_pressed}, gradientDrawable);
 
         gradientDrawable = new GradientDrawable();
-        gradientDrawable.setColor(ContextCompat.getColor(getContext(), layoutBackgroundColorPressed));
+        gradientDrawable.setColor(layoutBackgroundColorPressed);
         gradientDrawable.setCornerRadius(radius);
 
         states.addState(new int[]{}, gradientDrawable);
@@ -324,13 +332,19 @@ public class CollectionPicker extends LinearLayout {
 
         view.setScaleY(0);
         view.setScaleX(0);
-        view.animate().scaleY(1).scaleX(1).setDuration(200).setInterpolator(new DecelerateInterpolator()).setListener(null)
-                .setStartDelay(animationDelay).start();
+        view.animate()
+                .scaleY(1)
+                .scaleX(1)
+                .setDuration(200)
+                .setInterpolator(new DecelerateInterpolator())
+                .setListener(null)
+                .setStartDelay(animationDelay)
+                .start();
     }
 
     private static int dpToPx(Context context, int dp) {
         float density = context.getResources().getDisplayMetrics().density;
-        return Math.round(dp * density);
+        return Math.round((float) dp * density);
     }
 
 

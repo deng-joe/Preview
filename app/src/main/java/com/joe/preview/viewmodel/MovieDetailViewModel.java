@@ -1,6 +1,7 @@
 package com.joe.preview.viewmodel;
 
 import androidx.lifecycle.MutableLiveData;
+import androidx.lifecycle.ViewModel;
 
 import com.joe.preview.data.local.dao.MovieDao;
 import com.joe.preview.data.local.entity.Movie;
@@ -9,13 +10,13 @@ import com.joe.preview.repository.MovieRepository;
 
 import javax.inject.Inject;
 
-public class MovieDetailViewModel extends BaseViewModel {
+public class MovieDetailViewModel extends ViewModel {
 
     private MovieRepository movieRepository;
     private MutableLiveData<Movie> movieDetailsLiveData = new MutableLiveData<>();
 
     @Inject
-    public MovieDetailViewModel(MovieDao movieDao, MovieApiService movieApiService) {
+    MovieDetailViewModel(MovieDao movieDao, MovieApiService movieApiService) {
         movieRepository = new MovieRepository(movieDao, movieApiService);
     }
 

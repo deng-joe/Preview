@@ -20,7 +20,7 @@ public class Resource<T> {
         return new Resource<>(Status.ERROR, data, message);
     }
 
-    public static <T> Resource<T> loading(T data) {
+    static <T> Resource<T> loading(T data) {
         return new Resource<>(Status.LOADING, data, null);
     }
 

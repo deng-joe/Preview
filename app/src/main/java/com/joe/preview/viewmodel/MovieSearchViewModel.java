@@ -1,6 +1,7 @@
 package com.joe.preview.viewmodel;
 
 import androidx.lifecycle.MutableLiveData;
+import androidx.lifecycle.ViewModel;
 
 import com.joe.preview.data.local.dao.MovieDao;
 import com.joe.preview.data.local.entity.Movie;
@@ -15,13 +16,13 @@ import javax.inject.Inject;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 
-public class MovieSearchViewModel extends BaseViewModel {
+public class MovieSearchViewModel extends ViewModel {
 
     private MovieRepository movieRepository;
     private MutableLiveData<Resource<List<Movie>>> moviesLiveData = new MutableLiveData<>();
 
     @Inject
-    public MovieSearchViewModel(MovieDao movieDao, MovieApiService movieApiService) {
+    MovieSearchViewModel(MovieDao movieDao, MovieApiService movieApiService) {
         movieRepository = new MovieRepository(movieDao, movieApiService);
     }
 

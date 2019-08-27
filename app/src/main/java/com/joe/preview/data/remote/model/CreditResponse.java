@@ -34,7 +34,7 @@ public class CreditResponse implements Parcelable {
         this.crews = crews;
     }
 
-    protected CreditResponse(Parcel in) {
+    private CreditResponse(Parcel in) {
         this.casts = in.createTypedArrayList(Cast.CREATOR);
         this.crews = in.createTypedArrayList(Crew.CREATOR);
     }

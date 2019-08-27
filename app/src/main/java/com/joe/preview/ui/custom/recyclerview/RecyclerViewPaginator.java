@@ -9,13 +9,12 @@ import static androidx.recyclerview.widget.RecyclerView.SCROLL_STATE_IDLE;
 public abstract class RecyclerViewPaginator extends RecyclerView.OnScrollListener {
 
     private Long currentPage = 1L;
-    private Integer threshold = 2;
     private boolean endWithAuto = false;
 
     private RecyclerView recyclerView;
     private RecyclerView.LayoutManager layoutManager;
 
-    public RecyclerViewPaginator(RecyclerView recyclerView) {
+    protected RecyclerViewPaginator(RecyclerView recyclerView) {
         this.recyclerView = recyclerView;
         init();
     }
@@ -42,6 +41,7 @@ public abstract class RecyclerViewPaginator extends RecyclerView.OnScrollListene
             if (isLastPage())
                 return;
 
+            int threshold = 2;
             if ((visibleItemCount + firstVisibleItemPosition + threshold) >= totalItemCount) {
                 if (!endWithAuto) {
                     endWithAuto = true;
