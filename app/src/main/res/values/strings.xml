@@ -44,5 +44,7 @@
     <string name="read_less">READ LESS</string>
     <string name="read_more">READ MORE</string>
     <string name="detail_tv_similar">Similar TV Series</string>
+    <string name="movies">Movies</string>
+    <string name="tv_shows">TV Shows</string>
 
 </resources>

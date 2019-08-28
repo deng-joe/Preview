@@ -45,6 +45,20 @@
                 app:layout_constraintVertical_bias="0.4"
                 app:navGraph="@navigation/nav_main" />
 
+            <com.google.android.material.bottomnavigation.BottomNavigationView
+                android:id="@+id/bottom_nav"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/background_activity_detail"
+                android:foreground="?attr/selectableItemBackground"
+                app:itemIconTint="@color/item_foreground"
+                app:itemTextColor="@color/item_foreground"
+                app:labelVisibilityMode="labeled"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:menu="@menu/bottom_nav" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <ScrollView
