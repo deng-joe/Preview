@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.joe.preview.R;
 import com.joe.preview.data.local.entity.Movie;
 import com.joe.preview.databinding.MoviesListItemBinding;
-import com.squareup.picasso.Picasso;
+import com.joe.preview.glide.GlideApp;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -72,7 +72,7 @@ public class MoviesListAdapter extends RecyclerView.Adapter<MoviesListAdapter.Mo
         }
 
         void bindTo(Movie movie) {
-            Picasso.get().load(movie.getPosterPath()).placeholder(R.drawable.ic_image).into(binding.image);
+            GlideApp.with(activity).load(movie.getPosterPath()).placeholder(R.drawable.ic_image).into(binding.image);
         }
     }
 

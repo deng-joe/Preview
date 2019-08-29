@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.joe.preview.data.local.entity.Movie;
 import com.joe.preview.databinding.SimilarMoviesListItemBinding;
-import com.squareup.picasso.Picasso;
+import com.joe.preview.glide.GlideApp;
 
 import java.util.List;
 
@@ -35,7 +35,7 @@ public class SimilarMoviesListAdapter extends RecyclerView.Adapter<SimilarMovies
     public void onBindViewHolder(@NonNull SimilarMoviesViewHolder holder, int position) {
         Movie movie = getItem(position);
         String imageUrl = movie.getPosterPath();
-        Picasso.get().load(imageUrl).into(holder.binding.itemImage);
+        GlideApp.with(activity).load(imageUrl).into(holder.binding.itemImage);
     }
 
     @Override

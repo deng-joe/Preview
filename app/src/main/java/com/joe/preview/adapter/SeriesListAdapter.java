@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.joe.preview.R;
 import com.joe.preview.data.local.entity.Series;
 import com.joe.preview.databinding.MoviesListItemBinding;
-import com.squareup.picasso.Picasso;
+import com.joe.preview.glide.GlideApp;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -72,7 +72,7 @@ public class SeriesListAdapter extends RecyclerView.Adapter<SeriesListAdapter.Se
         }
 
         void bindTo(Series series) {
-            Picasso.get().load(series.getPosterPath()).placeholder(R.drawable.ic_image).into(binding.image);
+            GlideApp.with(activity).load(series.getPosterPath()).placeholder(R.drawable.ic_image).into(binding.image);
         }
     }
 
