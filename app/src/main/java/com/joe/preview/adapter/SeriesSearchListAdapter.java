@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.joe.preview.R;
 import com.joe.preview.data.local.entity.Series;
 import com.joe.preview.databinding.MoviesListItemBinding;
-import com.joe.preview.glide.GlideApp;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -72,7 +72,10 @@ public class SeriesSearchListAdapter extends RecyclerView.Adapter<SeriesSearchLi
         }
 
         private void bindTo(Series trailer) {
-            GlideApp.with(activity).load(trailer.getPosterPath()).placeholder(R.drawable.ic_image).into(binding.image);
+            Picasso.get()
+                    .load(trailer.getPosterPath())
+                    .placeholder(R.drawable.ic_image)
+                    .into(binding.image);
         }
     }
 

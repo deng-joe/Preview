@@ -17,12 +17,19 @@ public class RequestInterceptor implements Interceptor {
     @Override
     public Response intercept(@NonNull Chain chain) throws IOException {
         Request request = chain.request();
+
         HttpUrl httpUrl = request.url();
+
         HttpUrl url = httpUrl.newBuilder()
                 .addQueryParameter("api_key", PreviewConstants.TMDB_API_KEY)
                 .build();
-        Request.Builder builder = request.newBuilder().url(url);
+
+        Request.Builder builder = request
+                .newBuilder()
+                .url(url);
+
         Request newRequest = builder.build();
+
         return chain.proceed(newRequest);
     }
 

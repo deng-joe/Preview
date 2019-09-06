@@ -91,6 +91,7 @@ public class MovieDetailActivity extends BaseActivity {
         if (movie.getGenres() != null)
             binding.collectionItemPicker.setItems(PreviewUtil.getGenres(movie.getGenres()));
         binding.runtime.setText(PreviewUtil.getRuntimeInMinutes(movie.getStatus(), movie.getRuntime(), movie.getReleaseDate()));
+        binding.rating.setText(String.format("Rating    %s/10", movie.getVoteAverage()));
     }
 
     private void updateMovieVideos(List<Video> videos) {

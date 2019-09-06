@@ -91,6 +91,10 @@ public class Movie implements Parcelable {
     @Expose
     private String status;
 
+    @SerializedName("vote_average")
+    @Expose
+    private double voteAverage;
+
     public Movie() {
         casts = new ArrayList<>();
         crews = new ArrayList<>();
@@ -231,6 +235,14 @@ public class Movie implements Parcelable {
         this.status = status;
     }
 
+    public double getVoteAverage() {
+        return voteAverage;
+    }
+
+    public void setVoteAverage(double voteAverage) {
+        this.voteAverage = voteAverage;
+    }
+
     public boolean isLastPage() {
         return getPage() >= getTotalPages();
     }
@@ -252,6 +264,7 @@ public class Movie implements Parcelable {
         similarMovies = in.createTypedArrayList(Movie.CREATOR);
         runtime = (Long) in.readValue(Long.class.getClassLoader());
         status = in.readString();
+        voteAverage = in.readDouble();
     }
 
     public static final Creator<Movie> CREATOR = new Creator<Movie>() {
@@ -289,6 +302,7 @@ public class Movie implements Parcelable {
         parcel.writeTypedList(similarMovies);
         parcel.writeValue(runtime);
         parcel.writeString(status);
+        parcel.writeDouble(voteAverage);
     }
 
 }

@@ -87,6 +87,10 @@ public class Series implements Parcelable {
     @Expose
     private Long numberOfSeasons;
 
+    @SerializedName("vote_average")
+    @Expose
+    private double voteAverage;
+
     public Series() {
         casts = new ArrayList<>();
         crews = new ArrayList<>();
@@ -219,6 +223,14 @@ public class Series implements Parcelable {
         this.numberOfSeasons = numberOfSeasons;
     }
 
+    public double getVoteAverage() {
+        return voteAverage;
+    }
+
+    public void setVoteAverage(double voteAverage) {
+        this.voteAverage = voteAverage;
+    }
+
     public boolean isLastPage() {
         return getPage() >= getTotalPages();
     }
@@ -239,6 +251,7 @@ public class Series implements Parcelable {
         similarSeries = in.createTypedArrayList(Series.CREATOR);
         status = in.readString();
         numberOfSeasons = (Long) in.readValue(Long.class.getClassLoader());
+        voteAverage = in.readDouble();
     }
 
     public static final Creator<Series> CREATOR = new Creator<Series>() {
@@ -275,6 +288,7 @@ public class Series implements Parcelable {
         parcel.writeTypedList(similarSeries);
         parcel.writeString(status);
         parcel.writeValue(numberOfSeasons);
+        parcel.writeDouble(voteAverage);
     }
-    
+
 }

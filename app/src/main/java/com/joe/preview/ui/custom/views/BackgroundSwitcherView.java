@@ -3,22 +3,17 @@ package com.joe.preview.ui.custom.views;
 import android.animation.Animator;
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
 import android.os.Handler;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.animation.Animation;
 import android.widget.ImageSwitcher;
 import android.widget.ImageView;
 
-import androidx.annotation.Nullable;
-
-import com.bumptech.glide.load.DataSource;
-import com.bumptech.glide.load.engine.GlideException;
-import com.bumptech.glide.request.RequestListener;
-import com.bumptech.glide.request.target.Target;
-import com.joe.preview.glide.GlideApp;
 import com.joe.preview.utils.AnimationUtil;
+import com.squareup.picasso.Picasso;
+import com.squareup.picasso.Target;
 
 public class BackgroundSwitcherView extends ImageSwitcher {
 
@@ -96,20 +91,26 @@ public class BackgroundSwitcherView extends ImageSwitcher {
         if (imageUrl == null)
             return;
 
-        GlideApp.with(getContext()).asBitmap().load(imageUrl).listener(new RequestListener<Bitmap>() {
-            @Override
-            public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Bitmap> target, boolean isFirstResource) {
-                Log.e("ImageLoading", "Failed to load image");
-                return false;
-            }
+        Picasso.get()
+                .load(imageUrl)
+                .noFade()
+                .noPlaceholder()
+                .into(new Target() {
+                    @Override
+                    public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom from) {
+                        setImageBitmapWithAnimation(bitmap, currentAnimationDirection);
+                    }
 
-            @Override
-            public boolean onResourceReady(Bitmap resource, Object model, Target<Bitmap> target, DataSource dataSource,
-                                           boolean isFirstResource) {
-                setImageBitmapWithAnimation(resource, currentAnimationDirection);
-                return true;
-            }
-        }).into(imageView);
+                    @Override
+                    public void onBitmapFailed(Exception e, Drawable errorDrawable) {
+                        System.out.println("Error, " + e.getMessage());
+                    }
+
+                    @Override
+                    public void onPrepareLoad(Drawable placeHolderDrawable) {
+
+                    }
+                });
     }
 
     private void setImageBitmap(Bitmap bitmap) {

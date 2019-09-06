@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data class="DetailActivityBinding" />
 
@@ -76,53 +77,13 @@
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
 
-                        <LinearLayout
-                            android:id="@+id/layout_imdb"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginEnd="@dimen/margin_xxxxxxlarge"
-                            android:layout_marginBottom="@dimen/margin"
-                            android:background="@drawable/background_imdb"
-                            android:orientation="horizontal"
-                            android:paddingStart="@dimen/padding_small"
-                            android:paddingTop="2dp"
-                            android:paddingEnd="@dimen/padding_small"
-                            android:paddingBottom="2dp"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/movie_title">
-
-                            <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center_vertical"
-                                android:adjustViewBounds="true"
-                                android:contentDescription="@string/menu_item_image"
-                                android:src="@drawable/ic_imdb" />
-
-                            <androidx.appcompat.widget.AppCompatTextView
-                                android:id="@+id/imdb_rating"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center_vertical"
-                                android:drawableStart="@drawable/ic_star"
-                                android:drawablePadding="@dimen/padding_small"
-                                android:gravity="center_vertical"
-                                android:paddingTop="2dp"
-                                android:textColor="@android:color/white"
-                                android:textSize="@dimen/font_xsmall" />
-
-                        </LinearLayout>
-
                         <com.joe.preview.ui.custom.collectionpicker.CollectionPicker
                             android:id="@+id/collection_item_picker"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
-                            android:layout_marginStart="@dimen/margin_xxxxxxlarge"
-                            android:layout_marginEnd="@dimen/margin"
                             android:gravity="start"
                             android:orientation="horizontal"
-                            android:paddingStart="@dimen/margin_xlarge"
                             app:cp_itemBackgroundNormal="@color/blue"
                             app:cp_itemBackgroundPressed="@color/blue"
                             app:cp_simplified="true"
@@ -130,7 +91,7 @@
                             app:cp_textPaddingEnd="@dimen/padding_medium"
                             app:cp_textPaddingStart="@dimen/padding_medium"
                             app:cp_textPaddingTop="@dimen/padding_small"
-                            app:layout_constraintStart_toEndOf="@id/layout_imdb"
+                            app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toBottomOf="@id/movie_title" />
 
                         <androidx.appcompat.widget.AppCompatTextView
@@ -145,6 +106,23 @@
                             android:textColor="@color/text_desc_activity_detail"
                             android:textSize="@dimen/font_small_medium"
                             app:layout_constraintTop_toBottomOf="@+id/collection_item_picker" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/rating_label"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/font_small"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/movie_desc"
+                            tools:text="Rating" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/rating"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/font_small"
+                            app:layout_constraintStart_toEndOf="@id/rating_label"
+                            app:layout_constraintTop_toBottomOf="@id/movie_desc" />
 
                         <com.joe.preview.ui.custom.collectionpicker.CollectionPicker
                             android:id="@+id/movie_status"
@@ -163,7 +141,7 @@
                             app:cp_textPaddingStart="@dimen/padding_medium"
                             app:cp_textPaddingTop="@dimen/padding_small"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/movie_desc" />
+                            app:layout_constraintTop_toBottomOf="@+id/rating_label" />
 
                         <androidx.appcompat.widget.AppCompatTextView
                             android:id="@+id/runtime"
@@ -178,7 +156,7 @@
                             android:textColor="@color/text_runtime_activity_detail"
                             android:textSize="@dimen/font_small"
                             app:layout_constraintStart_toEndOf="@id/movie_status"
-                            app:layout_constraintTop_toBottomOf="@id/movie_desc" />
+                            app:layout_constraintTop_toBottomOf="@id/rating_label" />
 
                         <androidx.appcompat.widget.AppCompatTextView
                             android:id="@+id/expand_button"

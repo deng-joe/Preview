@@ -24,12 +24,12 @@ public class NetworkInterceptor implements Interceptor {
         Request request = chain.request();
         if (ConnectivityStatus.isConnected(context))
             request.newBuilder()
-            .header("Cache-Control", "public, max-age=" + 60)
-            .build();
+                    .header("Cache-Control", "public, max-age=" + 60)
+                    .build();
         else
             request.newBuilder()
-            .header("Cache-Control", "public, only-if-cached, max-stale=" + 60 * 60 * 24 * 7)
-            .build();
+                    .header("Cache-Control", "public, only-if-cached, max-stale=" + 60 * 60 * 24 * 7)
+                    .build();
         return chain.proceed(request);
     }
 

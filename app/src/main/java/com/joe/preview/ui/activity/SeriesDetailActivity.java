@@ -92,6 +92,7 @@ public class SeriesDetailActivity extends BaseActivity {
             binding.collectionItemPicker.setItems(PreviewUtil.getGenres(series.getGenres()));
         if (series.getNumberOfSeasons() != null)
             binding.runtime.setText(PreviewUtil.getSeasonNumber(series.getNumberOfSeasons()));
+        binding.rating.setText(String.format("Rating    %s/10", series.getVoteAverage()));
     }
 
     private void updateSeriesVideos(List<Video> videos) {

@@ -27,6 +27,7 @@ import com.joe.preview.data.local.entity.Series;
 public abstract class PreviewRoomDatabase extends RoomDatabase {
 
     public abstract MovieDao movieDao();
+
     public abstract SeriesDao seriesDao();
 
     private static volatile PreviewRoomDatabase INSTANCE;
