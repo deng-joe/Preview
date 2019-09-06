@@ -95,6 +95,14 @@ public class Movie implements Parcelable {
     @Expose
     private double voteAverage;
 
+    @SerializedName("budget")
+    @Expose
+    private long budget;
+
+    @SerializedName("revenue")
+    @Expose
+    private long revenue;
+
     public Movie() {
         casts = new ArrayList<>();
         crews = new ArrayList<>();
@@ -243,6 +251,22 @@ public class Movie implements Parcelable {
         this.voteAverage = voteAverage;
     }
 
+    public long getBudget() {
+        return budget;
+    }
+
+    public void setBudget(long budget) {
+        this.budget = budget;
+    }
+
+    public long getRevenue() {
+        return revenue;
+    }
+
+    public void setRevenue(long revenue) {
+        this.revenue = revenue;
+    }
+
     public boolean isLastPage() {
         return getPage() >= getTotalPages();
     }
@@ -265,6 +289,8 @@ public class Movie implements Parcelable {
         runtime = (Long) in.readValue(Long.class.getClassLoader());
         status = in.readString();
         voteAverage = in.readDouble();
+        budget = in.readLong();
+        revenue = in.readLong();
     }
 
     public static final Creator<Movie> CREATOR = new Creator<Movie>() {
@@ -303,6 +329,8 @@ public class Movie implements Parcelable {
         parcel.writeValue(runtime);
         parcel.writeString(status);
         parcel.writeDouble(voteAverage);
+        parcel.writeLong(budget);
+        parcel.writeLong(revenue);
     }
 
 }

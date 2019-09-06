@@ -124,6 +124,40 @@
                             app:layout_constraintStart_toEndOf="@id/rating_label"
                             app:layout_constraintTop_toBottomOf="@id/movie_desc" />
 
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/budget_label"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/font_small"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/rating_label"
+                            tools:text="Budget" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/budget"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/font_small"
+                            app:layout_constraintStart_toEndOf="@id/budget_label"
+                            app:layout_constraintTop_toBottomOf="@id/rating_label" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/revenue_label"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/font_small"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/budget_label"
+                            tools:text="Revenue" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/revenue"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/font_small"
+                            app:layout_constraintStart_toEndOf="@id/revenue_label"
+                            app:layout_constraintTop_toBottomOf="@id/budget_label" />
+
                         <com.joe.preview.ui.custom.collectionpicker.CollectionPicker
                             android:id="@+id/movie_status"
                             android:layout_width="wrap_content"
@@ -141,7 +175,7 @@
                             app:cp_textPaddingStart="@dimen/padding_medium"
                             app:cp_textPaddingTop="@dimen/padding_small"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/rating_label" />
+                            app:layout_constraintTop_toBottomOf="@+id/revenue_label" />
 
                         <androidx.appcompat.widget.AppCompatTextView
                             android:id="@+id/runtime"
@@ -156,7 +190,7 @@
                             android:textColor="@color/text_runtime_activity_detail"
                             android:textSize="@dimen/font_small"
                             app:layout_constraintStart_toEndOf="@id/movie_status"
-                            app:layout_constraintTop_toBottomOf="@id/rating_label" />
+                            app:layout_constraintTop_toBottomOf="@id/revenue_label" />
 
                         <androidx.appcompat.widget.AppCompatTextView
                             android:id="@+id/expand_button"

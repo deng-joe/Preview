@@ -29,8 +29,10 @@ import com.joe.preview.utils.PreviewUtil;
 import com.joe.preview.viewmodel.MovieDetailViewModel;
 import com.squareup.picasso.Picasso;
 
+import java.text.NumberFormat;
 import java.util.Collections;
 import java.util.List;
+import java.util.Locale;
 
 import javax.inject.Inject;
 
@@ -91,7 +93,11 @@ public class MovieDetailActivity extends BaseActivity {
         if (movie.getGenres() != null)
             binding.collectionItemPicker.setItems(PreviewUtil.getGenres(movie.getGenres()));
         binding.runtime.setText(PreviewUtil.getRuntimeInMinutes(movie.getStatus(), movie.getRuntime(), movie.getReleaseDate()));
-        binding.rating.setText(String.format("Rating    %s/10", movie.getVoteAverage()));
+        binding.rating.setText(String.format("Rating      %s/10", movie.getVoteAverage()));
+        binding.budget.setText(String.format("Budget     $%s", NumberFormat.getNumberInstance(Locale.getDefault())
+                .format(movie.getBudget())));
+        binding.revenue.setText(String.format("Revenue   $%s", NumberFormat.getNumberInstance(Locale.getDefault())
+                .format(movie.getRevenue())));
     }
 
     private void updateMovieVideos(List<Video> videos) {
