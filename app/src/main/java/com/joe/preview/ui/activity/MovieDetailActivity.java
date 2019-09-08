@@ -93,11 +93,12 @@ public class MovieDetailActivity extends BaseActivity {
         if (movie.getGenres() != null)
             binding.collectionItemPicker.setItems(PreviewUtil.getGenres(movie.getGenres()));
         binding.runtime.setText(PreviewUtil.getRuntimeInMinutes(movie.getStatus(), movie.getRuntime(), movie.getReleaseDate()));
-        binding.rating.setText(String.format("Rating      %s/10", movie.getVoteAverage()));
-        binding.budget.setText(String.format("Budget     $%s", NumberFormat.getNumberInstance(Locale.getDefault())
-                .format(movie.getBudget())));
-        binding.revenue.setText(String.format("Revenue   $%s", NumberFormat.getNumberInstance(Locale.getDefault())
-                .format(movie.getRevenue())));
+        binding.ratingLabel.setText(R.string.rating);
+        binding.rating.setText(String.format("%s/10", movie.getVoteAverage()));
+        binding.budgetLabel.setText(R.string.budget);
+        binding.budget.setText(String.format("$%s", NumberFormat.getInstance(Locale.getDefault()).format(movie.getBudget())));
+        binding.revenueLabel.setText(R.string.revenue);
+        binding.revenue.setText(String.format("$%s", NumberFormat.getInstance(Locale.getDefault()).format(movie.getRevenue())));
     }
 
     private void updateMovieVideos(List<Video> videos) {

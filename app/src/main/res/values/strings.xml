@@ -47,4 +47,8 @@
     <string name="movies">Movies</string>
     <string name="tv_shows">TV Shows</string>
 
+    <string name="rating">Rating</string>
+    <string name="budget">Budget</string>
+    <string name="revenue">Revenue</string>
+
 </resources>

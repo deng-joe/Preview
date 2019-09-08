@@ -120,9 +120,11 @@
                             android:id="@+id/rating"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/margin_xxlarge"
                             android:textSize="@dimen/font_small"
-                            app:layout_constraintStart_toEndOf="@id/rating_label"
-                            app:layout_constraintTop_toBottomOf="@id/movie_desc" />
+                            app:layout_constraintBaseline_toBaselineOf="@id/rating_label"
+                            app:layout_constraintStart_toEndOf="@id/revenue_label"
+                            tools:text="8.3/10" />
 
                         <androidx.appcompat.widget.AppCompatTextView
                             android:id="@+id/budget_label"
@@ -137,9 +139,11 @@
                             android:id="@+id/budget"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/margin_xxlarge"
                             android:textSize="@dimen/font_small"
-                            app:layout_constraintStart_toEndOf="@id/budget_label"
-                            app:layout_constraintTop_toBottomOf="@id/rating_label" />
+                            app:layout_constraintBaseline_toBaselineOf="@id/budget_label"
+                            app:layout_constraintStart_toEndOf="@id/revenue_label"
+                            tools:text="$10,000" />
 
                         <androidx.appcompat.widget.AppCompatTextView
                             android:id="@+id/revenue_label"
@@ -154,9 +158,11 @@
                             android:id="@+id/revenue"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/margin_xxlarge"
                             android:textSize="@dimen/font_small"
+                            app:layout_constraintBaseline_toBaselineOf="@id/revenue_label"
                             app:layout_constraintStart_toEndOf="@id/revenue_label"
-                            app:layout_constraintTop_toBottomOf="@id/budget_label" />
+                            tools:text="$100,000" />
 
                         <com.joe.preview.ui.custom.collectionpicker.CollectionPicker
                             android:id="@+id/movie_status"
