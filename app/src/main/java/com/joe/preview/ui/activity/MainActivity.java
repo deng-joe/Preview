@@ -50,7 +50,7 @@ public class MainActivity extends BaseActivity implements HasSupportFragmentInje
                 binding.leftDrawer, R.string.drawer_open, R.string.drawer_close, PreviewUtil.getMenuList(getApplicationContext())) {
             @Override
             public void onSwitch(int selectedPosition, int topPosition) {
-                binding.bottomNav.getSelectedItemId();
+                binding.bottomNav.setSelectedItemId(binding.bottomNav.getSelectedItemId());
             }
         };
 
